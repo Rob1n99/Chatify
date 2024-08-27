@@ -11,7 +11,7 @@ body {
 .container {
   width: 350px;
   height: 500px;
-  background: linear-gradient(to left, #283048, #859398);
+  background: linear-gradient(to left, #ff8008, #ffc837);
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
@@ -45,8 +45,8 @@ button {
   margin: 10px auto;
   justify-content: center;
   display: block;
-  color: #fff;
-  background: #573b8a;
+  color: black;
+  background: #fef9f3;
   font-size: 1em;
   font-weight: bold;
   margin-top: 30px;
