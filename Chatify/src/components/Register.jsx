@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./register.module.css";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -49,7 +50,7 @@ function Register() {
   };
   return (
     <div>
-      <form onSubmit={handleRegister}>
+      <form className={styles.container} onSubmit={handleRegister}>
         <label>Email</label>
         <input
           type="email"
@@ -73,8 +74,8 @@ function Register() {
         />
 
         <button type="submit">Register</button>
+        {error && <p>{error}</p>}
       </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }
