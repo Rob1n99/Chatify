@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./login.module.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -7,7 +8,6 @@ function Login() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [csrfToken, setCsrfToken] = useState("");
-  const [userId, setUserId] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +23,11 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Logging in with user...", { username, password, csrfToken });
+    console.log("Logging in with user...", {
+      username,
+      password,
+      csrfToken,
+    });
 
     fetch("https://chatify-api.up.railway.app/auth/token", {
       method: "POST",
@@ -54,7 +58,7 @@ function Login() {
   };
   return (
     <div>
-      <form onSubmit={handleLogin}>
+      <form className={styles.container} onSubmit={handleLogin}>
         <label>Username</label>
         <input
           type="text"
@@ -71,9 +75,11 @@ function Login() {
         />
 
         <button type="submit">Login</button>
+        {error && <p className="error">{error}</p>}
+        {success && (
+          <p style={{ color: "white", textAlign: "center" }}>{success}</p>
+        )}
       </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
     </div>
   );
 }
