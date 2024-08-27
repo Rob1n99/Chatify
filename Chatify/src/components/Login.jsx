@@ -49,7 +49,7 @@ function Login() {
           localStorage.setItem("userToken", data.token);
           console.log(data.token);
           setError("");
-          setSuccess("Login successful...");
+          setSuccess("Logging in...");
           setTimeout(() => {
             navigate("/Chat");
           }, 3000);
