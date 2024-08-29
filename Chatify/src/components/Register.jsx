@@ -49,7 +49,7 @@ function Register() {
       });
   };
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <form className={styles.container} onSubmit={handleRegister}>
         <label>Email</label>
         <input
@@ -73,7 +73,7 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Register</button>
+        <button className={styles.registerBtn} type="submit">Register</button>
         {error && <p>{error}</p>}
       </form>
     </div>
