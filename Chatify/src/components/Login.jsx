@@ -63,7 +63,7 @@ function Login() {
       });
   };
   return (
-    <div>
+    <div className={styles.mainContainer2}>
       <form className={styles.container} onSubmit={handleLogin}>
         <label>Username</label>
         <input
@@ -80,7 +80,9 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Login</button>
+        <button className={styles.loginBtn} type="submit">
+          Login
+        </button>
         {error && <p className="error">{error}</p>}
         {success && (
           <p style={{ color: "white", textAlign: "center" }}>{success}</p>
