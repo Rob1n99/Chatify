@@ -47,6 +47,12 @@ function Login() {
           setError(data.error);
         } else {
           localStorage.setItem("userToken", data.token);
+
+          const decodedJwt = JSON.parse(atob(data.token.split(".")[1]));
+          console.log("Decoded JWT:", decodedJwt);
+
+          localStorage.setItem("userId", decodedJwt.id);
+          localStorage.setItem("username", decodedJwt.user);
           console.log(data.token);
           setError("");
           setSuccess("Logging in...");
