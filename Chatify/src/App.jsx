@@ -11,7 +11,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/Login" element={<Login />} />
-          {/* Skydda /chat-rutten med ProtectedRoute */}
           <Route element={<ProtectedRoute />}>
             <Route path="/chat" element={<Chat />} />
           </Route>

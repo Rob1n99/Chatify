@@ -46,7 +46,7 @@ function Login() {
         if (data.error) {
           setError(data.error);
         } else {
-          localStorage.setItem("userToken", data.token);
+          sessionStorage.setItem("userToken", data.token);
 
           const decodedJwt = JSON.parse(atob(data.token.split(".")[1]));
           console.log("Decoded JWT:", decodedJwt);
