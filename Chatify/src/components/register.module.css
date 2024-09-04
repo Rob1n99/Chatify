@@ -4,13 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   font-family: "Jost", sans-serif;
   background: white;
 }
 .container {
   width: 350px;
-  height: 620px;
+  height: 760px;
   background: linear-gradient(to left, #283048, #302b63, #24243e);
   overflow: hidden;
   border-radius: 10px;
@@ -60,4 +59,18 @@ input {
 p {
   color: red;
   text-align: center;
+}
+
+.link {
+  color: #fff;
+  justify-content: flex-end;
+  display: flex;
+  margin-right: 10px;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: rgb(96, 219, 219);
 }
