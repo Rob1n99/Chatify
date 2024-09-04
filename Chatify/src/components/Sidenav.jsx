@@ -1,21 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Sidenav.css"; // Stilar för Sidenav-komponenten
+import styles from "./sideNav.module.css";
 
 function Sidenav() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Ta bort användarens token från localStorage
     sessionStorage.removeItem("userToken");
-    // Navigera till inloggningssidan
+
     navigate("/login");
   };
 
   return (
-    <div className="sidenav">
-      <button onClick={handleLogout} className="logout-button">
-        Logga ut
+    <div className={styles.sideNav}>
+      <button onClick={handleLogout} className={styles.logoutBtn}>
+        Logout
       </button>
     </div>
   );
