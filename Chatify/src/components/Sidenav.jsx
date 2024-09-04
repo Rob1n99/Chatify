@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./sideNav.module.css";
 
-function Sidenav() {
+function SideNav() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -20,4 +20,4 @@ function Sidenav() {
   );
 }
 
-export default Sidenav;
+export default SideNav;
