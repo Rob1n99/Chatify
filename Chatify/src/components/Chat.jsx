@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./chat.module.css";
+import Sidenav from "./sideNav";
 
 function Chat() {
   const [userId, setUserId] = useState(null);
@@ -105,6 +106,7 @@ function Chat() {
   };
   return (
     <div className={styles.wrapper}>
+      <Sidenav />
       <div className={styles.chatContainer}>
         <h1 className={styles.chatHeader}>
           Welcome to Chatify, {username}
