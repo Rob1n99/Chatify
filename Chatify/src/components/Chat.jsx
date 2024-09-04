@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./chat.module.css";
 
 function Chat() {
   const [userId, setUserId] = useState(null);
@@ -85,36 +86,76 @@ function Chat() {
         });
     }
   };
-
+  const handleDelete = (msgID) => {
+    const token = sessionStorage.getItem("userToken");
+    fetch(`https://chatify-api.up.railway.app/messages/${msgID}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        console.log(`Message with ID ${msgID} deleted successfully.`);
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.id !== msgID)
+        );
+      });
+  };
   return (
-    <div>
-      <h1>
-        Welcome to chatify, {username}{" "}
-        <img src={avatar} style={{ width: "100px" }} />
-      </h1>
-      <h2>Messages</h2>
-      <ul>
-        {[...fakeChat, ...messages].map((messages, index) => (
-          <li key={index}>
-            <img
-              src={messages.avatar || avatar}
-              alt={`${messages.username}'s avatar`}
-              style={{ width: "30px", borderRadius: "50%" }}
-            />
-
-            {messages.text}
-          </li>
-        ))}
-      </ul>
-      <form onSubmit={handleSendMessage}>
-        <input
-          type="text"
-          value={sendMessage}
-          onChange={(e) => setSendMessage(e.target.value)}
-          placeholder="write your message"
-        />
-        <button type="submit">Send</button>
-      </form>
+    <div className={styles.wrapper}>
+      <div className={styles.chatContainer}>
+        <h1 className={styles.chatHeader}>
+          Welcome to Chatify, {username}
+          <img src={avatar} style={{ width: "100px" }} alt="User avatar" />
+        </h1>
+        <h2 className={styles.messagesHeader}>Messages</h2>
+        <ul className={styles.messageList}>
+          {[...fakeChat, ...messages].map((message, index) => (
+            <li
+              key={index}
+              className={`${styles.messageItem} ${
+                messages.some((msg) => msg.id === message.id)
+                  ? styles.realMessage
+                  : styles.fakeMessage
+              }`}
+            >
+              <img
+                src={message.avatar || avatar}
+                alt={`${message.username}'s avatar`}
+                className={styles.avatar}
+              />
+              <div
+                className={`${styles.messageBubble} ${
+                  messages.some((msg) => msg.id === message.id)
+                    ? styles.realBubble
+                    : styles.fakeBubble
+                }`}
+              >
+                {message.text}
+              </div>
+              {messages.some((msg) => msg.id === message.id) && (
+                <button
+                  onClick={() => handleDelete(message.id)}
+                  className={styles.deleteBtn}
+                >
+                  Delete
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+        <form onSubmit={handleSendMessage} className={styles.formContainer}>
+          <input
+            type="text"
+            value={sendMessage}
+            onChange={(e) => setSendMessage(e.target.value)}
+            placeholder="Write your message"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
   );
 }
