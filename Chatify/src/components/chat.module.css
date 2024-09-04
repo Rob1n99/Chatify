@@ -1,11 +1,14 @@
 .wrapper {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   padding: 10px;
+  min-height: 100vh;
 }
 
 .chatContainer {
   max-width: 50%;
-  margin: 0 auto;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 50px;
   font-family: Arial, sans-serif;
   border: 1px solid black;
   background-color: white;
