@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./chat.module.css";
-import SideNav from "./components/SideNav";
+import SideNav from "./SideNav";
 
 function Chat() {
   const [userId, setUserId] = useState(null);
