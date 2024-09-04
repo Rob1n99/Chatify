@@ -110,7 +110,7 @@ function Chat() {
       <div className={styles.chatContainer}>
         <h1 className={styles.chatHeader}>
           Welcome to Chatify, {username}
-          <img src={avatar} style={{ width: "100px" }} alt="User avatar" />
+          {avatar && <img src={avatar} style={{ width: "100px" }} />}
         </h1>
         <h2 className={styles.messagesHeader}>Messages</h2>
         <ul className={styles.messageList}>
@@ -123,11 +123,13 @@ function Chat() {
                   : styles.fakeMessage
               }`}
             >
-              <img
-                src={message.avatar || avatar}
-                alt={`${message.username}'s avatar`}
-                className={styles.avatar}
-              />
+              {(message.avatar || avatar) && (
+                <img
+                  src={message.avatar || avatar}
+                  alt={`${message.username}'s avatar`}
+                  className={styles.avatar}
+                />
+              )}
               <div
                 className={`${styles.messageBubble} ${
                   messages.some((msg) => msg.id === message.id)
