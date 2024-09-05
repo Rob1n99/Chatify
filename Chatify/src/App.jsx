@@ -14,6 +14,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/chat" element={<Chat />} />
           </Route>
+          <Route path="*" element={<h1>Heja Gnaget!</h1>} />
         </Routes>
       </Router>
     </>

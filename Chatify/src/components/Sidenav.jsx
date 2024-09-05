@@ -12,10 +12,17 @@ function SideNav() {
   };
 
   return (
-    <div className={styles.sideNav}>
-      <button onClick={handleLogout} className={styles.logoutBtn}>
-        Logout
-      </button>
+    <div className={styles.sideNavContainer}>
+      <div className={styles.hamburgerMenu}>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+      </div>
+      <div className={styles.sideNav}>
+        <button onClick={handleLogout} className={styles.logoutBtn}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 }
