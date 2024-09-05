@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./register.module.css";
 
 function Register() {
@@ -8,6 +8,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [csrfToken, setCsrfToken] = useState("");
+  const [avatar, setAvatar] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +20,6 @@ function Register() {
         console.log(data);
         setCsrfToken(data.csrfToken);
       });
-    //.catch((error) => console.error("Error:", error));
   }, []);
 
   const handleRegister = (e) => {
@@ -29,12 +29,13 @@ function Register() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token": csrfToken,
       },
       body: JSON.stringify({
         email: email,
         username: username,
         password: password,
+        csrfToken: csrfToken,
+        avatar: avatar,
       }),
     })
       .then((response) => response.json())
@@ -72,9 +73,21 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <label>Choose Avatar</label>
+        <input
+          type="text"
+          placeholder="Avatar URL"
+          value={avatar}
+          onChange={(e) => setAvatar(e.target.value)}
+        />
 
-        <button className={styles.registerBtn} type="submit">Register</button>
+        <button className={styles.registerBtn} type="submit">
+          Register
+        </button>
         {error && <p>{error}</p>}
+        <Link className={styles.link} to="/login">
+          Login
+        </Link>
       </form>
     </div>
   );

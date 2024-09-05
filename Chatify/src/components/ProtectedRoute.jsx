@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 
 const ProtectedRoute = () => {
-  const authenticationDone = localStorage.getItem("userToken");
+  const authenticationDone = sessionStorage.getItem("userToken");
 
   return authenticationDone ? <Outlet /> : <Navigate to="/login" replace />;
 };

@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+}
+.wrapper {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.chatContainer {
+  max-width: 50%;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  font-family: Arial, sans-serif;
+  border: 1px solid black;
+  background-color: white;
+  box-shadow: 5px 20px 50px #000;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline;
+}
+
+.messagesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageList {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.messageItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.fakeMessage {
+  justify-content: flex-start;
+}
+
+.realMessage {
+  justify-content: flex-end;
+}
+
+.messageBubble {
+  padding: 10px;
+  border-radius: 15px;
+  max-width: 60%;
+  display: inline-block;
+}
+
+.fakeBubble {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.realBubble {
+  background-color: #a3d9a5;
+  color: white;
+}
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.deleteBtn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.formContainer input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-right: 10px;
+}
+
+.formContainer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
