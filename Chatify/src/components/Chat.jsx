@@ -156,6 +156,7 @@ function Chat() {
             value={sendMessage}
             onChange={(e) => setSendMessage(e.target.value)}
             placeholder="Write your message"
+            required
           />
           <button type="submit">Send</button>
         </form>

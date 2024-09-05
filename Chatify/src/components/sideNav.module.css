@@ -1,0 +1,49 @@
+.sideNavContainer {
+  position: relative;
+}
+
+.hamburgerMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 100%;
+  height: 5px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.sideNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #333;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sideNavContainer:hover .sideNav {
+  transform: translateX(0);
+}
+
+.logoutBtn {
+  margin: 20px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #f14538;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.logoutBtn:hover {
+  background-color: #d12a2a;
+}
